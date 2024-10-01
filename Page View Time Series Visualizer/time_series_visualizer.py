@@ -17,19 +17,17 @@ def draw_line_plot():
     plt.xlabel('Date')
     plt.ylabel('Page Views')
     plt.grid(True)
-    plt.savefig('line_plot.png')  # Save the plot
-    plt.show()                     # Show the plot
-
+    plt.savefig('line_plot.png')  
+    plt.show()                     
 def draw_bar_plot():
-    # Prepare the data for the bar plot
+   
     df_bar = df.copy()
     df_bar['year'] = df_bar.index.year
     df_bar['month'] = df_bar.index.month_name()
     
-    # Group by year and month
+   
     df_bar_grouped = df_bar.groupby(['year', 'month'])['value'].mean().unstack()
 
-    # Draw the bar plot
     plt.figure(figsize=(12, 6))
     df_bar_grouped.plot(kind='bar', ax=plt.gca())
     plt.title('Average Daily Page Views per Month')
@@ -37,26 +35,23 @@ def draw_bar_plot():
     plt.ylabel('Average Page Views')
     plt.legend(title='Months')
     plt.xticks(rotation=45)
-    plt.savefig('bar_plot.png')  # Save the plot
-    plt.show()                   # Show the plot
+    plt.savefig('bar_plot.png')  
+    plt.show()                   
 
 def draw_box_plot():
-    # Prepare the data for the box plot
+    
     df_box = df.copy()
     df_box['year'] = df_box.index.year
     df_box['month'] = df_box.index.month_name()
 
-    # Create a box plot
     plt.figure(figsize=(12, 6))
-    
-    # Year-wise box plot
+   
     plt.subplot(1, 2, 1)
     sns.boxplot(x='year', y='value', data=df_box)
     plt.title('Year-wise Box Plot (Trend)')
     plt.xlabel('Year')
     plt.ylabel('Page Views')
 
-    # Month-wise box plot
     plt.subplot(1, 2, 2)
     sns.boxplot(x='month', y='value', data=df_box, order=['January', 'February', 'March', 'April', 'May', 'June', 
                                                              'July', 'August', 'September', 'October', 'November', 
@@ -66,10 +61,9 @@ def draw_box_plot():
     plt.ylabel('Page Views')
 
     plt.tight_layout()
-    plt.savefig('box_plot.png')  # Save the plot
-    plt.show()                   # Show the plot
+    plt.savefig('box_plot.png')  
+    plt.show()                   
 
-# Uncomment the following lines to run the functions
 if __name__ == "__main__":
     draw_line_plot()
     draw_bar_plot()

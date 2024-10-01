@@ -1,14 +1,12 @@
 import numpy as np
 
 def calculate(numbers):
-    # Check if the list contains exactly 9 elements
+
     if len(numbers) != 9:
         raise ValueError("List must contain nine numbers.")
 
-    # Convert the list into a 3x3 numpy array
     matrix = np.array(numbers).reshape(3, 3)
 
-    # Initialize the result dictionary
     stats = {
         'mean': [
             matrix.mean(axis=0).tolist(),  

@@ -27,10 +27,10 @@ def draw_plot():
     plt.legend()
     plt.grid()
 
-    # Save the figure
+    
     plt.savefig('sea_level_plot.png')
-    plt.show()  # Display the plot
+    plt.show()  
 
-# Uncomment the following lines to run the function
+
 if __name__ == "__main__":
     draw_plot()

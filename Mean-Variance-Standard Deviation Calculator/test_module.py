@@ -14,7 +14,7 @@ class TestMeanVarStd(unittest.TestCase):
 
     def test_value_error(self):
         with self.assertRaises(ValueError):
-            calculate([1, 2, 3])  # Not enough numbers
+            calculate([1, 2, 3])  
 
 if __name__ == '__main__':
     unittest.main()
